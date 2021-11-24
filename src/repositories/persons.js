@@ -26,9 +26,7 @@ const getPersons = () => {
 const getPersonByID = (id) => {
 	validateID(id);
 
-	const output = persons.find((person) => {
-		person.id === id;
-	});
+	const output = persons.find((person) => person.id === id);
 
 	if (!output) throw new NotFoundError(`Person with ID ${id} not found!`);
 
@@ -38,7 +36,7 @@ const getPersonByID = (id) => {
 const addPerson = (person) => {
 	validatePerson(person);
 
-	const personToAdd = { ...person, id: uuid.v5 };
+	const personToAdd = { ...person, id: uuid.v4() };
 	persons.push(personToAdd);
 
 	return personToAdd;
@@ -63,7 +61,7 @@ const updatePerson = (id, personData) => {
 
 	const upadtedPerson = { ...personToUpdate, ...personData };
 
-	persons[foundIndex] = upadtedPerson;
+	persons[foundPersonIndex] = upadtedPerson;
 
 	return upadtedPerson;
 };
