@@ -10,8 +10,7 @@ const server = http.createServer(async (req, res) => {
 		const { methods } = constants;
 		const splittedURL = url.split('/');
 		const category = splittedURL[1];
-		const unvalidatedID = splittedURL[2];
-		const id = uuid.validate(unvalidatedID) ? unvalidatedID : null;
+		const id = splittedURL[2];
 
 		if (
 			(!id && splittedURL.length > 2) ||
