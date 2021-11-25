@@ -12,13 +12,13 @@ const okCode = constants.successCodes.OK;
 const createdCode = constants.successCodes.CREATED;
 const contentTypeJSON = { 'Content-Type': 'application/json' };
 
-const processGetPersons = async (req, res) => {
+const processGetPersons = (req, res) => {
 	const persons = getPersons();
 
 	sendResponse(res, okCode, persons);
 };
 
-const processGetPersonByID = async (req, res, id) => {
+const processGetPersonByID = (req, res, id) => {
 	const person = getPersonByID(id);
 
 	sendResponse(res, okCode, person);
@@ -40,7 +40,7 @@ const processPutPersonData = async (req, res, id) => {
 	sendResponse(res, okCode, updatedPerson);
 };
 
-const processDeletePerson = async (req, res, id) => {
+const processDeletePerson = (req, res, id) => {
 	deletePerson(id);
 	const noContentCode = constants.successCodes.NO_CONTENT;
 
