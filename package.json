@@ -5,7 +5,7 @@
 	"main": "src/index.js",
 	"scripts": {
 		"start:dev": "nodemon src/index.js",
-		"start:prod": "nodemon src/index.js",
+		"start:prod": "webpack && node dist/bundle.js",
 		"test": "jest --runInBand",
 		"lint": "eslint src --fix"
 	},
@@ -32,7 +32,8 @@
 		"jest": "^27.3.1",
 		"nodemon": "^2.0.15",
 		"supertest": "^6.1.6",
-		"webpack": "^5.64.2"
+		"webpack": "^5.64.2",
+		"webpack-cli": "^4.9.1"
 	},
 	"dependencies": {
 		"dotenv": "^10.0.0",
