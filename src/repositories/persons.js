@@ -12,16 +12,12 @@ const validatePerson = (person) => {
   if (!isValidPerson) throw new BadRequestError('Invalid person data!');
 };
 
-const validateID = (id) => {
-  const isValidID = uuid.validate(id);
-
-  if (!isValidID) throw new BadRequestError('Invalid person ID!');
-};
-
 const getPersons = () => persons;
 
 const getPersonByID = (id) => {
-  validateID(id);
+  const isValidID = uuid.validate(id);
+
+  if (!isValidID) throw new BadRequestError('Invalid person ID!');
 
   const output = persons.find((person) => person.id === id);
 
@@ -40,7 +36,8 @@ const addPerson = (person) => {
 };
 
 const updatePerson = (id, personData) => {
-  validateID(id);
+  const isValidID = uuid.validate(id);
+  if (!isValidID) throw new BadRequestError('Invalid person ID!');
 
   let foundPersonIndex;
 
@@ -62,7 +59,9 @@ const updatePerson = (id, personData) => {
 };
 
 const deletePerson = (id) => {
-  validateID(id);
+  const isValidID = uuid.validate(id);
+
+  if (!isValidID) throw new BadRequestError('Invalid person ID!');
 
   let foundPersonIndex;
 

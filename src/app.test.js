@@ -20,7 +20,8 @@ const mockUpdatedUser = {
   hobbies: ['instagram'],
 };
 
-let createdPersonId, createdPersonId2;
+let createdPersonId; let
+  createdPersonId2;
 
 describe('Testing REST API (scenario 1)', () => {
   it('Should return empty array and code 200 on GET person/', async () => {

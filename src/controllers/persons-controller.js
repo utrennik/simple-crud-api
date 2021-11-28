@@ -10,6 +10,7 @@ const getReqPayload = require('../utils/get-req-payload');
 
 const okCode = constants.successCodes.OK;
 const createdCode = constants.successCodes.CREATED;
+const serverErrorCode = constants.errorCodes.INTERNAL_SERVER_ERROR;
 const contentTypeJSON = { 'Content-Type': 'application/json' };
 
 const sendResponse = (res, code, payload) => {
@@ -30,19 +31,29 @@ const processGetPersonByID = (res, id) => {
 };
 
 const processPostPerson = async (req, res, id) => {
-  const reqPayload = await getReqPayload(req);
-  const personData = JSON.parse(reqPayload);
-  const addedPerson = addPerson(personData, id);
+  try {
+    const reqPayload = await getReqPayload(req);
+    const personData = JSON.parse(reqPayload);
+    const addedPerson = addPerson(personData, id);
 
-  sendResponse(res, createdCode, addedPerson);
+    sendResponse(res, createdCode, addedPerson);
+  } catch (e) {
+    res.writeHead(e.errorCode || serverErrorCode, contentTypeJSON);
+    res.end(JSON.stringify({ message: e.message }));
+  }
 };
 
 const processPutPersonData = async (req, res, id) => {
-  const reqPayload = await getReqPayload(req);
-  const personData = JSON.parse(reqPayload);
-  const updatedPerson = updatePerson(id, personData);
+  try {
+    const reqPayload = await getReqPayload(req);
+    const personData = JSON.parse(reqPayload);
+    const updatedPerson = updatePerson(id, personData);
 
-  sendResponse(res, okCode, updatedPerson);
+    sendResponse(res, okCode, updatedPerson);
+  } catch (e) {
+    res.writeHead(e.errorCode || serverErrorCode, contentTypeJSON);
+    res.end(JSON.stringify({ message: e.message }));
+  }
 };
 
 const processDeletePerson = (res, id) => {
