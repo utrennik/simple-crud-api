@@ -1,0 +1,14 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": ["airbnb-base"],
+  "parserOptions": {},
+  "rules": {
+    "no-underscore-dangle": [1, { "allow": [] }],
+    "class-methods-use-this": "off"
+  }
+}

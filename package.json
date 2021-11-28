@@ -1,42 +1,42 @@
 {
-	"name": "simple-crud-api",
-	"version": "1.0.0",
-	"description": "Node.js course task: Simple CRUD API",
-	"main": "src/index.js",
-	"scripts": {
-		"start:dev": "nodemon src/index.js",
-		"start:prod": "webpack && node dist/bundle.js",
-		"test": "jest --runInBand",
-		"lint": "eslint src --fix"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/utrennik/simple-crud-api.git"
-	},
-	"keywords": [
-		"Node",
-		"CRUD"
-	],
-	"author": "utrennik",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/utrennik/simple-crud-api/issues"
-	},
-	"homepage": "https://github.com/utrennik/simple-crud-api#readme",
-	"devDependencies": {
-		"@types/jest": "^27.0.3",
-		"cross-env": "^7.0.3",
-		"eslint": "^7.32.0",
-		"eslint-config-airbnb-base": "^14.2.1",
-		"eslint-plugin-import": "^2.25.2",
-		"jest": "^27.3.1",
-		"nodemon": "^2.0.15",
-		"supertest": "^6.1.6",
-		"webpack": "^5.64.2",
-		"webpack-cli": "^4.9.1"
-	},
-	"dependencies": {
-		"dotenv": "^10.0.0",
-		"uuid": "^8.3.2"
-	}
+  "name": "simple-crud-api",
+  "version": "1.0.0",
+  "description": "Node.js course task: Simple CRUD API",
+  "main": "src/index.js",
+  "scripts": {
+    "start:dev": "nodemon src/index.js",
+    "start:prod": "eslint src --fix && webpack && node dist/bundle.js",
+    "test": "jest --runInBand",
+    "lint": "eslint src --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utrennik/simple-crud-api.git"
+  },
+  "keywords": [
+    "Node",
+    "CRUD"
+  ],
+  "author": "utrennik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/utrennik/simple-crud-api/issues"
+  },
+  "homepage": "https://github.com/utrennik/simple-crud-api#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6",
+    "webpack": "^5.64.2",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "uuid": "^8.3.2"
+  }
 }
